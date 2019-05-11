@@ -25,7 +25,7 @@
 // and to the left (counteclockwise) with negative values
 void turnInPlace(signed byte speed = 95, int time)
 {
-	motor[leftMotor] = speed;
+  motor[leftMotor] = speed;
   motor[rightMotor] = -speed;
   wait(time);
   motor[leftMotor] = motor[rightMotor] = 0;
@@ -35,11 +35,27 @@ void turnInPlace(signed byte speed = 95, int time)
 // Use a negative speed to go backwards.
 void goForward(signed byte speed = 95, int time)
 {
-	motor[leftMotor] = motor[rightMotor] = speed;
+  motor[leftMotor] = motor[rightMotor] = speed;
   wait(time);
   motor[leftMotor] = motor[rightMotor] = 0;
 }
 
+// Functions in Spanish (delete this block if you do not need it)
+
+// Giro Rapido hace un giro rapido hacia la derecha (sentido de las agujas del reloj)
+// o hacia la izquierda (sentido contrario a las agujas del reloj)
+// El giro es producido durante el tiempo indicado por time
+void giroRapido(signed byte velocidad = 95, int tiempo)
+{
+  turnInPlace(velocidad, tiempo);
+}
+
+// Avanzar hacia delante (o hacia atras si la velocidad es negativa)
+void avanzar(signed byte velocidad = 95, int tiempo)
+{
+  goForward(velocidad, tiempo);
+}
+	
 task main()
 {
 	//Write your code here!
