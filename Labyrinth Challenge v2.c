@@ -15,7 +15,7 @@
 
 /*
 	Project name: Labyrinth Challenge
-	Author: Jose Luis Cebrian Marquez (Template) and 
+	Author: Jose Luis Cebrian Marquez (Template) and [your name here!]
 	Team members: 
 	Period: 
 */
@@ -27,6 +27,25 @@ void turnInPlace(signed byte speed = 95, int time)
 {
   motor[leftMotor] = speed;
   motor[rightMotor] = -speed;
+  wait(time);
+  motor[leftMotor] = motor[rightMotor] = 0;
+}
+
+// Function to Turn to the LEFT a certain SPEED during TIME
+void turnToLeft(signed byte speed = 95, int time)
+{
+  motor[leftMotor] = 0;
+  motor[rightMotor] = abs(speed);
+  wait(time);
+  motor[leftMotor] = motor[rightMotor] = 0;
+}
+
+
+// Function to Turn to the RIGHT a certain SPEED during TIME
+void turnToRight(signed byte speed = 95, int time)
+{
+  motor[leftMotor] = abs(speed);
+  motor[rightMotor] = 0;
   wait(time);
   motor[leftMotor] = motor[rightMotor] = 0;
 }
@@ -55,7 +74,9 @@ void avanzar(signed byte velocidad = 95, int tiempo)
 {
   goForward(velocidad, tiempo);
 }
-	
+
+// END of the "Functions in Spanish"
+
 task main()
 {
 	//Write your code here!
