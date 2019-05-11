@@ -6,6 +6,7 @@ This template is preconfigured for the same elements that the Testbed of the POE
 Also, I include the commands to move the clawbot connecting the motors to 1 and 10 as well (leftMotor and rightMotor) and a example of how to move the robot and beat the labyrinth challenge.
 
 Please feel free to use it in your classes. Is a work in progress, but you can check in this video how it works!
+https://www.youtube.com/watch?v=_1wSVoWqjMc
 
 EXTRA: The commands are going to be in Spanish as well really soon!
 
