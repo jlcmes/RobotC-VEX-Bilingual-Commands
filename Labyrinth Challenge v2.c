@@ -20,10 +20,10 @@
 	Period: 
 */
 
-// Function to Turn In Place at a certain SPEED during TIME
+// Function to Turn In Point at a certain SPEED during TIME
 // Rotation to the right (clockwise) with positive values
 // and to the left (counteclockwise) with negative values
-void turnInPlace(signed byte speed = 95, int time)
+void turnInPoint(signed byte speed = 95, int time)
 {
   motor[leftMotor] = speed;
   motor[rightMotor] = -speed;
@@ -32,7 +32,7 @@ void turnInPlace(signed byte speed = 95, int time)
 }
 
 // Function to Turn to the LEFT a certain SPEED during TIME
-void turnToLeft(signed byte speed = 95, int time)
+void swingTurnToLeft(signed byte speed = 95, int time)
 {
   motor[leftMotor] = 0;
   motor[rightMotor] = abs(speed);
@@ -42,7 +42,7 @@ void turnToLeft(signed byte speed = 95, int time)
 
 
 // Function to Turn to the RIGHT a certain SPEED during TIME
-void turnToRight(signed byte speed = 95, int time)
+void swingTurnToRight(signed byte speed = 95, int time)
 {
   motor[leftMotor] = abs(speed);
   motor[rightMotor] = 0;
@@ -66,7 +66,7 @@ void goForward(signed byte speed = 95, int time)
 // El giro es producido durante el tiempo indicado por time
 void giroRapido(signed byte velocidad = 95, int tiempo)
 {
-  turnInPlace(velocidad, tiempo);
+  turnInPoint(velocidad, tiempo);
 }
 
 // Avanzar hacia delante (o hacia atras si la velocidad es negativa)
@@ -75,6 +75,19 @@ void avanzar(signed byte velocidad = 95, int tiempo)
   goForward(velocidad, tiempo);
 }
 
+// Giro a la izquierda con Velocidad y Tiempo
+void giroIzquierda(signed byte velocidad = 95, int tiempo)
+{
+ swingTurnToLeft(velocidad, tiempo);
+} 
+
+// Giro a la derecha con Velocidad y Tiempo
+void giroDerecha(signed byte velocidad = 95, int tiempo)
+{
+ swingTurnToRight(velocidad, tiempo);
+} 
+
+
 // END of the "Functions in Spanish"
 
 task main()
@@ -82,10 +95,10 @@ task main()
 	//Write your code here!
   wait(1); // Wait for 1 second until we start
 	goForward(95, 2);
-	turnInPlace(-50, 1);
+	turnInPoint(-50, 1);
 	goForward(95, 2);
-	turnInPlace(50, 1);
+	turnInPoint(50, 1);
 	goForward(50, 1.5);
-	turnInPlace(50, 1);
+	turnInPoint(50, 1);
 	goForward(50, 1.5);
 }
