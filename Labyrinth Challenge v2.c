@@ -23,7 +23,7 @@
 // Function to Turn In Point at a certain SPEED during TIME
 // Rotation to the right (clockwise) with positive values
 // and to the left (counteclockwise) with negative values
-void turnInPoint(signed byte speed = 95, int time)
+void pointTurn(signed byte speed = 95, int time)
 {
   motor[leftMotor] = speed;
   motor[rightMotor] = -speed;
@@ -66,7 +66,7 @@ void goForward(signed byte speed = 95, int time)
 // El giro es producido durante el tiempo indicado por time
 void giroRapido(signed byte velocidad = 95, int tiempo)
 {
-  turnInPoint(velocidad, tiempo);
+  pointTurn(velocidad, tiempo);
 }
 
 // Avanzar hacia delante (o hacia atras si la velocidad es negativa)
@@ -95,10 +95,10 @@ task main()
 	//Write your code here!
   wait(1); // Wait for 1 second until we start
 	goForward(95, 2);
-	turnInPoint(-50, 1);
+	pointTurn(-50, 1);
 	goForward(95, 2);
-	turnInPoint(50, 1);
+	pointTurn(50, 1);
 	goForward(50, 1.5);
-	turnInPoint(50, 1);
+	pointTurn(50, 1);
 	goForward(50, 1.5);
 }
