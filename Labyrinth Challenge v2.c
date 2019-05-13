@@ -20,10 +20,10 @@
 	Period: 
 */
 
-// Function to Turn In Point at a certain SPEED during TIME
+// Function to Turn on Point at a certain SPEED during TIME
 // Rotation to the right (clockwise) with positive values
 // and to the left (counteclockwise) with negative values
-void pointTurn(signed byte speed = 95, int time)
+void timedPointTurn(signed byte speed = 95, int time)
 {
   motor[leftMotor] = speed;
   motor[rightMotor] = -speed;
@@ -32,7 +32,7 @@ void pointTurn(signed byte speed = 95, int time)
 }
 
 // Function to Turn to the LEFT a certain SPEED during TIME
-void swingTurnToLeft(signed byte speed = 95, int time)
+void timedSwingTurnToLeft(signed byte speed = 95, int time)
 {
   motor[leftMotor] = 0;
   motor[rightMotor] = abs(speed);
@@ -42,7 +42,7 @@ void swingTurnToLeft(signed byte speed = 95, int time)
 
 
 // Function to Turn to the RIGHT a certain SPEED during TIME
-void swingTurnToRight(signed byte speed = 95, int time)
+void timedSwingTurnToRight(signed byte speed = 95, int time)
 {
   motor[leftMotor] = abs(speed);
   motor[rightMotor] = 0;
@@ -52,7 +52,7 @@ void swingTurnToRight(signed byte speed = 95, int time)
 
 // Function to Go Forward at a certain SPEED during TIME seconds.
 // Use a negative speed to go backwards.
-void goForward(signed byte speed = 95, int time)
+void timedGoForward(signed byte speed = 95, int time)
 {
   motor[leftMotor] = motor[rightMotor] = speed;
   wait(time);
@@ -66,25 +66,25 @@ void goForward(signed byte speed = 95, int time)
 // El giro es producido durante el tiempo indicado por time
 void giroRapido(signed byte velocidad = 95, int tiempo)
 {
-  pointTurn(velocidad, tiempo);
+  timedPointTurn(velocidad, tiempo);
 }
 
 // Avanzar hacia delante (o hacia atras si la velocidad es negativa)
 void avanzar(signed byte velocidad = 95, int tiempo)
 {
-  goForward(velocidad, tiempo);
+  timedGoForward(velocidad, tiempo);
 }
 
 // Giro a la izquierda con Velocidad y Tiempo
 void giroIzquierda(signed byte velocidad = 95, int tiempo)
 {
- swingTurnToLeft(velocidad, tiempo);
+ timedSwingTurnToLeft(velocidad, tiempo);
 } 
 
 // Giro a la derecha con Velocidad y Tiempo
 void giroDerecha(signed byte velocidad = 95, int tiempo)
 {
- swingTurnToRight(velocidad, tiempo);
+ timedSwingTurnToRight(velocidad, tiempo);
 } 
 
 
@@ -94,11 +94,11 @@ task main()
 {
 	//Write your code here!
   wait(1); // Wait for 1 second until we start
-	goForward(95, 2);
-	pointTurn(-50, 1);
-	goForward(95, 2);
-	pointTurn(50, 1);
-	goForward(50, 1.5);
-	pointTurn(50, 1);
-	goForward(50, 1.5);
+  timedGoForward(95, 2);  // Go forward with a speed of 95 during 2 seconds.
+  timedPointTurn(-50, 1); // Rotate on point counterclockwise during 1 second.
+  timedGoForward(95, 2);
+  timedPointTurn(50, 1);
+  timedGoForward(50, 1.5);
+  timedPointTurn(50, 1);
+  timedGoForward(50, 1.5);
 }
