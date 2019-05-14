@@ -8,5 +8,8 @@ Also, I include the commands to move the clawbot connecting the motors to 1 and 
 Please feel free to use it in your classes. Is a work in progress, but you can check in this video how it works!
 https://www.youtube.com/watch?v=_1wSVoWqjMc
 
+Explanation on video about how to use the code and how to pass the labyrinth challenge.
+https://www.youtube.com/watch?v=RDXKDDwEIMA
+
 EXTRA: The commands are going to be in Spanish as well really soon!
 
