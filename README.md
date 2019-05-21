@@ -13,3 +13,11 @@ https://www.youtube.com/watch?v=RDXKDDwEIMA
 
 EXTRA: The commands are going to be in Spanish as well really soon!
 
+UPDATE: NOW YOU CAN USE IT AS A LIBRARY!
+
+HOW TO USE IT:
+
+1. Copy and paste the following line of code in your program, between the #pragma block and the main method:
+#include "robotx.h"	//Includes the RobotX
+2. Download and place the robotx.h file on the same folder that your program.
+3. Enjoy the new commands and the Spanish commands.
