@@ -84,4 +84,6 @@ void para()
 	stop();
 }
 
+intrinsic int property(ValorSensor, propertySensor, kNumbOfTotalSensors, tSensors);
+
 // END of Functions in Spanish
