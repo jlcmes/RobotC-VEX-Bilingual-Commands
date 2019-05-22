@@ -23,16 +23,20 @@
 	Period:
 */
 
-
 task main()
 {
 	//Write your code here!
-  wait(1); // Wait for 1 second until we start
-  timedGoForward(95, 2);  // Go forward with a speed of 95 during 2 seconds.
-  timedPointTurn(-50, 1); // Rotate on point counterclockwise during 1 second.
-  timedGoForward(95, 2);
-  timedPointTurn(50, 1);
-  timedGoForward(50, 1.5);
-  timedPointTurn(50, 1);
-  timedGoForward(50, 1.5);
+  	//wait(1); // Wait for 1 second until we start
+  	//timedGoForward(95, 2);  // Go forward with a speed of 95 during 2 seconds.
+  	//timedPointTurn(-50, 1); // Rotate on point counterclockwise during 1 second.
+  	//timedGoForward(95, 2);
+  	//timedPointTurn(50, 1);
+  	//timedGoForward(50, 1.5);
+ 	//timedPointTurn(50, 1);
+  	//timedGoForward(50, 1.5);
+
+	// Example in Spanish
+	espera(1);		//Espera 1 segundo.
+	avanza(95, 2);		//Avanza con una velocidad de 95 durante 2 segundos y despues para.
+	giroRapido(-50, 1); 	//Giro rapido a izquierda (negativo) durante 1 segundo y despues para.
 }
