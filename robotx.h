@@ -55,7 +55,7 @@ void giroRapido(signed byte velocidad = 95, int tiempo)
 }
 
 // Avanzar hacia delante (o hacia atras si la velocidad es negativa)
-void avanzar(signed byte velocidad = 95, int tiempo)
+void avanza(signed byte velocidad = 95, int tiempo)
 {
   timedGoForward(velocidad, tiempo);
 }
@@ -63,14 +63,25 @@ void avanzar(signed byte velocidad = 95, int tiempo)
 // Giro a la izquierda con Velocidad y Tiempo
 void giroIzquierda(signed byte velocidad = 95, int tiempo)
 {
- timedSwingTurnToLeft(velocidad, tiempo);
+	timedSwingTurnToLeft(velocidad, tiempo);
 }
 
 // Giro a la derecha con Velocidad y Tiempo
 void giroDerecha(signed byte velocidad = 95, int tiempo)
 {
- timedSwingTurnToRight(velocidad, tiempo);
+	timedSwingTurnToRight(velocidad, tiempo);
 }
 
+// Espera un tiempo determinado, o 1 segundo si no se indica un valor.
+void espera(float tiempo = 1.0)
+{
+	wait(tiempo);
+}
+
+// Para ambos motores del robot.
+void para()
+{
+	stop();
+}
 
 // END of Functions in Spanish
