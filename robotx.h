@@ -91,7 +91,7 @@ void pararMotores()
 }
 
 // Ajusta motor a una velocidad
-void motor(const tMotor motorPort = port1, const short speed = 50)
+void ajustaMotor(const tMotor motorPort = port1, const short speed = 50)
 {
 	setMotor(motorPort, speed);
 }
