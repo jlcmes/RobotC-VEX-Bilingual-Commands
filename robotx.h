@@ -78,11 +78,25 @@ void espera(float tiempo = 1.0)
 	wait(tiempo);
 }
 
-// Para ambos motores del robot.
+// Para ambos motores del robot (izquierdo y derecho)
 void para()
 {
 	stop();
 }
+
+// Para todos los motores, no solo el izquierdo y el derecho.
+void pararMotores()
+{
+	stopAllMotors();
+}
+
+// Ajusta motor a una velocidad
+void motor(const tMotor motorPort = port1, const short speed = 50)
+{
+	setMotor(motorPort, speed);
+}
+	
+// Para todos los motores
 
 intrinsic int property(ValorSensor, propertySensor, kNumbOfTotalSensors, tSensors);
 
