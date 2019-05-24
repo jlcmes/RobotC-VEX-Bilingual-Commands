@@ -37,6 +37,6 @@ task main()
 
 	// Example in Spanish
 	espera(1);		//Espera 1 segundo.
-	avanza(95, 2);		//Avanza con una velocidad de 95 durante 2 segundos y despues para.
+	avanzaTiempo(95, 2);	//Avanza con una velocidad de 95 durante 2 segundos y despues para.
 	giroRapido(-50, 1); 	//Giro rapido a izquierda (negativo) durante 1 segundo y despues para.
 }
