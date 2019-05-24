@@ -95,8 +95,6 @@ void ajustaMotor(const tMotor motorPort = port1, const short speed = 50)
 {
 	setMotor(motorPort, speed);
 }
-	
-// Para todos los motores
 
 intrinsic int property(ValorSensor, propertySensor, kNumbOfTotalSensors, tSensors);
 
