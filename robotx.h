@@ -55,7 +55,7 @@ void giroRapido(signed byte velocidad = 95, int tiempo)
 }
 
 // Avanzar hacia delante (o hacia atras si la velocidad es negativa)
-void avanza(signed byte velocidad = 95, int tiempo)
+void avanzaTiempo(signed byte velocidad = 95, int tiempo)
 {
   timedGoForward(velocidad, tiempo);
 }
