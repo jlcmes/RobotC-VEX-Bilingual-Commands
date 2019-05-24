@@ -54,10 +54,22 @@ void giroRapido(signed byte velocidad = 95, int tiempo)
   timedPointTurn(velocidad, tiempo);
 }
 
-// Avanzar hacia delante (o hacia atras si la velocidad es negativa)
+// Avanzar hacia delante (o hacia atras si la velocidad es negativa) por un cierto tiempo
 void avanzaTiempo(signed byte velocidad = 95, int tiempo)
 {
   timedGoForward(velocidad, tiempo);
+}
+
+// Avanza hacia delante con el robot
+void avanza(const float quantity = 1.0, const tMovementUnits unitType = rotations, const short speed = 50)
+{
+	forward(quantity, unitType, speed);
+}
+
+// Retrocede hacia atras con el robot
+void retrocede(const float quantity = 1.0, const tMovementUnits unitType = rotations, const short speed = 50)
+{
+	backward(quantity, unitType, speed);
 }
 
 // Giro a la izquierda con Velocidad y Tiempo
