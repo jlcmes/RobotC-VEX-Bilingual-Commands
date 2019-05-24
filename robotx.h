@@ -97,7 +97,7 @@ void para()
 }
 
 // Para todos los motores, no solo el izquierdo y el derecho.
-void pararMotores()
+void paraMotores()
 {
 	stopAllMotors();
 }
