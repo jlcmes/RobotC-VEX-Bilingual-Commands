@@ -73,13 +73,13 @@ void retrocede(const float quantity = 1.0, const tMovementUnits unitType = rotat
 }
 
 // Giro a la izquierda con Velocidad y Tiempo
-void giroIzquierda(signed byte velocidad = 95, int tiempo)
+void giroIzquierdaTiempo(signed byte velocidad = 95, int tiempo)
 {
 	timedSwingTurnToLeft(velocidad, tiempo);
 }
 
 // Giro a la derecha con Velocidad y Tiempo
-void giroDerecha(signed byte velocidad = 95, int tiempo)
+void giroDerechaTiempo(signed byte velocidad = 95, int tiempo)
 {
 	timedSwingTurnToRight(velocidad, tiempo);
 }
