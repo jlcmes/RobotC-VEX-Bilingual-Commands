@@ -1,6 +1,8 @@
 #pragma systemFile  // eliminates warning for "unreferenced" functions
 // Configuration: use port1 for the leftMotor and port10 for the rightMotor.
 
+
+
 // START of Extra Functions
 
 // Function to Turn on Point at a certain SPEED during TIME
@@ -61,16 +63,16 @@ void avanzaTiempo(signed byte velocidad = 95, int tiempo)
 }
 
 // Avanza hacia delante con el robot
-void avanza(const float quantity = 1.0, const tMovementUnits unitType = rotations, const short speed = 50)
-{
-	forward(quantity, unitType, speed);
-}
+//void avanza(const float quantity = 1.0, const tMovementUnits unitType = rotations, const short speed = 50)
+//{
+//	forward(quantity, unitType, speed);
+//}
 
 // Retrocede hacia atras con el robot
-void retrocede(const float quantity = 1.0, const tMovementUnits unitType = rotations, const short speed = 50)
-{
-	backward(quantity, unitType, speed);
-}
+//void retrocede(const float quantity = 1.0, const tMovementUnits unitType = rotations, const short speed = 50)
+//{
+//	backward(quantity, unitType, speed);
+//}
 
 // Giro a la izquierda con Velocidad y Tiempo
 void giroIzquierdaTiempo(signed byte velocidad = 95, int tiempo)
@@ -96,17 +98,17 @@ void para()
 	stop();
 }
 
-// Para todos los motores, no solo el izquierdo y el derecho.
-void paraMotores()
-{
-	stopAllMotors();
-}
+//// Para todos los motores, no solo el izquierdo y el derecho.
+//void paraMotores()
+//{
+//	stopAllMotors();
+//}
 
-// Ajusta motor a una velocidad
-void ajustaMotor(const tMotor motorPort = port1, const short speed = 50)
-{
-	setMotor(motorPort, speed);
-}
+//// Ajusta motor a una velocidad
+//void ajustaMotor(const tMotor motorPort = port1, const short speed = 50)
+//{
+//	setMotor(motorPort, speed);
+//}
 
 intrinsic int property(ValorSensor, propertySensor, kNumbOfTotalSensors, tSensors);
 
