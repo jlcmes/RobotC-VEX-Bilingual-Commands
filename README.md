@@ -1,5 +1,7 @@
 # RobotC-VEX-Bilingual-Commands
 
+![My image](https://github.com/pepedeab/RobotC-VEX-Bilingual-Commands/blob/master/img/example.PNG)
+
 # ENGLISH README
 
 Bilingual RobotC EDR template with commands in Spanish and English that made easier to code for the Clawbot and the Testbed. 
