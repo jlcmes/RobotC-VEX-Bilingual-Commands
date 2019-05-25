@@ -1,7 +1,8 @@
 #pragma systemFile  // eliminates warning for "unreferenced" functions
 // Configuration: use port1 for the leftMotor and port10 for the rightMotor.
 
-
+// Functions prototypes
+void espera(float tiempo);
 
 // START of Extra Functions
 
@@ -12,7 +13,7 @@ void timedPointTurn(signed byte speed = 95, int time)
 {
   motor[port1] = speed;
   motor[port10] = -speed;
-  wait(time);
+  espera(time);
   motor[port1] = motor[port10] = 0;
 }
 
@@ -21,7 +22,7 @@ void timedSwingTurnToLeft(signed byte speed = 95, int time)
 {
   motor[port1] = 0;
   motor[port10] = abs(speed);
-  wait(time);
+  espera(time);
   motor[port1] = motor[port10] = 0;
 }
 
@@ -31,7 +32,7 @@ void timedSwingTurnToRight(signed byte speed = 95, int time)
 {
   motor[port1] = abs(speed);
   motor[port10] = 0;
-  wait(time);
+  espera(time);
   motor[port1] = motor[port10] = 0;
 }
 
@@ -40,7 +41,7 @@ void timedSwingTurnToRight(signed byte speed = 95, int time)
 void timedGoForward(signed byte speed = 95, int time)
 {
   motor[port1] = motor[port10] = speed;
-  wait(time);
+  espera(time);
   motor[port1] = motor[port10] = 0;
 }
 
@@ -63,16 +64,16 @@ void avanzaTiempo(signed byte velocidad = 95, int tiempo)
 }
 
 // Avanza hacia delante con el robot
-//void avanza(const float quantity = 1.0, const tMovementUnits unitType = rotations, const short speed = 50)
-//{
-//	forward(quantity, unitType, speed);
-//}
+void avanza(signed byte speed = 95)
+{
+	motor[port1] = motor[10] = abs(speed);
+}
 
 // Retrocede hacia atras con el robot
-//void retrocede(const float quantity = 1.0, const tMovementUnits unitType = rotations, const short speed = 50)
-//{
-//	backward(quantity, unitType, speed);
-//}
+void retrocede(const short speed = 50)
+{
+	motor[port1] = motor[10] = abs(speed) * -1;
+}
 
 // Giro a la izquierda con Velocidad y Tiempo
 void giroIzquierdaTiempo(signed byte velocidad = 95, int tiempo)
@@ -86,30 +87,24 @@ void giroDerechaTiempo(signed byte velocidad = 95, int tiempo)
 	timedSwingTurnToRight(velocidad, tiempo);
 }
 
-// Espera un tiempo determinado, o 1 segundo si no se indica un valor.
-void espera(float tiempo = 1.0)
-{
-	wait(tiempo);
-}
-
 // Para ambos motores del robot (izquierdo y derecho)
 void para()
 {
-	stop();
+	motor[port1] = motor[10] = 0;
 }
 
-//// Para todos los motores, no solo el izquierdo y el derecho.
-//void paraMotores()
-//{
-//	stopAllMotors();
-//}
+// Ajusta motor a una velocidad
+void ponMotor(const tMotor motorPort = port1, const short speed = 50)
+{
+	motor[motorPort] = speed;
+}
 
-//// Ajusta motor a una velocidad
-//void ajustaMotor(const tMotor motorPort = port1, const short speed = 50)
-//{
-//	setMotor(motorPort, speed);
-//}
+// Espera un tiempo determinado, o 1 segundo si no se indica un valor.
+void espera(float tiempo)
+{
+	sleep(tiempo * 1000.0);
+}
 
-intrinsic int property(ValorSensor, propertySensor, kNumbOfTotalSensors, tSensors);
+intrinsic int property(valor, propertySensor, kNumbOfTotalSensors, tSensors);
 
 // END of Functions in Spanish

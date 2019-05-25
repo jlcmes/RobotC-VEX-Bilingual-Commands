@@ -23,9 +23,15 @@
 
 task main()
 {
-	// Example in Spanish
-	espera(1);		//Espera 1 segundo.
-	avanzaTiempo(95, 2);	//Avanza con una velocidad de 95 durante 2 segundos y despues para.
-	giroRapido(-50, 1); 	//Giro rapido a izquierda (negativo) durante 1 segundo y despues para.
-
+	// Example in Spanish (you can test it with the testbed!)
+	while (true)
+	{
+		if (valor(boton) == 1)
+		{
+			espera(1);		//Espera 1 segundo.
+			avanzaTiempo(95, 2);	//Avanza con una velocidad de 95 durante 2 segundos y despues para.
+			giroRapido(-50, 1); 	//Giro rapido a izquierda (negativo) durante 1 segundo y despues para.
+		}
+	}
+	// END of the Example
 }
