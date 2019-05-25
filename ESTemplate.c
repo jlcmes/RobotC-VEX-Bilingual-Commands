@@ -14,32 +14,21 @@
 
 #include "robotx.h"	//Includes the RobotX library
 
-/*
-	Project name: Labyrinth Challenge
-	Author: Jose Luis Cebrian Marquez (Template) and [your name here!]
-	Team members:
-	Period:
-*/
-
 task main()
 {
-	// Example in Spanish (you can test it with the testbed!)
 	while (true)
 	{
 		if (valor(boton) == 1)
 		{
-			avanza(90);									//Avanza con velocidad 90
-			espera(2);									//Espera 2 segundos y luego continua el programa
-			para();											//Para los motores izquierdo y derecho
-			espera(0.5);								//Espera medio segundo
-			retrocede(50);							//Retrocede con velocidad 50
-			espera(1);									//Espera 1 segundo
-			giroIzquierdaTiempo(90, 2);	//Gira a la izquierda con velocidad 90 durante 2 segundos y después para
-			giroDerechaTiempo(90, 2);		//Gira a la derecha con velocidad 90 durante 2 segundos y después para
-			espera(1);									//Espera 1 segundo
-			avanzaTiempo(95, 2);				//Avanza con una velocidad de 95 durante 2 segundos y después para
-			giroRapido(-50, 3); 				//Giro rapido hacia la izquierda (negativo) durante 1 segundo y despues para
+			ponMotor(motorIzquierdo, 90);	//Enciende Motor Izquierdo con velocidad 90
+			espera(2);										//Espera 2 segundos y luego continua el programa
+			retrocede(50);								//Retrocede con velocidad 50
+			espera(1);										//Espera 1 segundo
+			giroIzquierdaTiempo(90, 2);		//Gira a la izquierda con velocidad 90 durante 2 segundos y después para
+			giroDerechaTiempo(90, 2);			//Gira a la derecha con velocidad 90 durante 2 segundos y después para
+			avanzaTiempo(95, 2);					//Avanza con una velocidad de 95 durante 2 segundos y después para
+			giroRapido(-50, 3); 					//Giro rapido hacia la izquierda (negativo) durante 1 segundo y despues para
+			para();												//Para los motores izquierdo y derecho
 		}
 	}
-	// END of the Example
 }
