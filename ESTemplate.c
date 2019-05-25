@@ -16,6 +16,8 @@
 
 task main()
 {
+	// Escriba su código aquí
+
 	while (true)
 	{
 		if (valor(boton) == 1)
