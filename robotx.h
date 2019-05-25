@@ -1,53 +1,50 @@
 #pragma systemFile  // eliminates warning for "unreferenced" functions
+
 // Configuration: use port1 for the leftMotor and port10 for the rightMotor.
+const tMotor LEFT_MOTOR = port1;
+const tMotor RIGHT_MOTOR = port10;
 
 // Functions prototypes
 void espera(float tiempo);
-
-// START of Extra Functions
 
 // Function to Turn on Point at a certain SPEED during TIME
 // Rotation to the right (clockwise) with positive values
 // and to the left (counteclockwise) with negative values
 void timedPointTurn(signed byte speed = 95, int time)
 {
-  motor[port1] = speed;
-  motor[port10] = -speed;
+  motor[LEFT_MOTOR] = speed;
+  motor[RIGHT_MOTOR] = -speed;
   espera(time);
-  motor[port1] = motor[port10] = 0;
+  motor[LEFT_MOTOR] = motor[RIGHT_MOTOR] = 0;
 }
 
 // Function to Turn to the LEFT a certain SPEED during TIME
 void timedSwingTurnToLeft(signed byte speed = 95, int time)
 {
-  motor[port1] = 0;
-  motor[port10] = abs(speed);
+  motor[LEFT_MOTOR] = 0;
+  motor[RIGHT_MOTOR] = abs(speed);
   espera(time);
-  motor[port1] = motor[port10] = 0;
+  motor[LEFT_MOTOR] = motor[RIGHT_MOTOR] = 0;
 }
 
 
 // Function to Turn to the RIGHT a certain SPEED during TIME
 void timedSwingTurnToRight(signed byte speed = 95, int time)
 {
-  motor[port1] = abs(speed);
-  motor[port10] = 0;
+  motor[LEFT_MOTOR] = abs(speed);
+  motor[RIGHT_MOTOR] = 0;
   espera(time);
-  motor[port1] = motor[port10] = 0;
+  motor[LEFT_MOTOR] = motor[RIGHT_MOTOR] = 0;
 }
 
 // Function to Go Forward at a certain SPEED during TIME seconds.
 // Use a negative speed to go backwards.
 void timedGoForward(signed byte speed = 95, int time)
 {
-  motor[port1] = motor[port10] = speed;
+  motor[LEFT_MOTOR] = motor[RIGHT_MOTOR] = speed;
   espera(time);
-  motor[port1] = motor[port10] = 0;
+  motor[LEFT_MOTOR] = motor[RIGHT_MOTOR] = 0;
 }
-
-// END of Extra Functions
-
-// START Functions in Spanish (delete this block if you do not need it)
 
 // Giro Rapido hace un giro rapido hacia la derecha (sentido de las agujas del reloj)
 // o hacia la izquierda (sentido contrario a las agujas del reloj)
@@ -66,13 +63,13 @@ void avanzaTiempo(signed byte velocidad = 95, int tiempo)
 // Avanza hacia delante con el robot
 void avanza(signed byte speed = 95)
 {
-	motor[port1] = motor[10] = abs(speed);
+	motor[LEFT_MOTOR] = motor[RIGHT_MOTOR] = abs(speed);
 }
 
 // Retrocede hacia atras con el robot
 void retrocede(const short speed = 50)
 {
-	motor[port1] = motor[10] = abs(speed) * -1;
+	motor[LEFT_MOTOR] = motor[RIGHT_MOTOR] = abs(speed) * -1;
 }
 
 // Giro a la izquierda con Velocidad y Tiempo
@@ -90,11 +87,11 @@ void giroDerechaTiempo(signed byte velocidad = 95, int tiempo)
 // Para ambos motores del robot (izquierdo y derecho)
 void para()
 {
-	motor[port1] = motor[10] = 0;
+	motor[LEFT_MOTOR] = motor[RIGHT_MOTOR] = 0;
 }
 
 // Ajusta motor a una velocidad
-void ponMotor(const tMotor motorPort = port1, const short speed = 50)
+void ponMotor(const tMotor motorPort = LEFT_MOTOR, const short speed = 50)
 {
 	motor[motorPort] = speed;
 }
@@ -105,6 +102,5 @@ void espera(float tiempo)
 	sleep(tiempo * 1000.0);
 }
 
+// Traducción de la propiedad sensorValue a valor en Español
 intrinsic int property(valor, propertySensor, kNumbOfTotalSensors, tSensors);
-
-// END of Functions in Spanish
