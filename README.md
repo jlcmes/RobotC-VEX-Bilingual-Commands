@@ -37,4 +37,4 @@ All the code is documented. Check "robotx.h" for more information.
 ## TROUBLESHOOTING
 
 * Did you copy both, the template and the robotx on the same folder?
-* You have no errors but your code does not work? Check the motor configuration lines at the beginning of the robotx.h file and change the existing ports by the ones that you are using.
+* You have no errors but your motors are not working? Check the motor configuration lines at the beginning of the robotx.h file and change the existing ports by the ones that you are using.
