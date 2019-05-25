@@ -4,8 +4,12 @@
 // MOTOR CONFIGURATION: Use the same setup that the one of your program.
 const tMotor LEFT_MOTOR = port1;
 const tMotor RIGHT_MOTOR = port10;
+const tMotor SERVO = port9;
 
 // EXTRA FUNCTIONS IN SPANISH ----------------------------------------------------
+
+// Traducción de la propiedad sensorValue a valor en Español
+intrinsic int property(valor, propertySensor, kNumbOfTotalSensors, tSensors);
 
 // Espera un tiempo determinado, equivale al comando WAIT en NL.
 void espera(float tiempo)
@@ -15,7 +19,7 @@ void espera(float tiempo)
 
 // Giro Rapido hace un giro rapido hacia la derecha (VELOCIDAD positiva)
 // o hacia la izquierda (VELOCIDAD negativa) durante un cierto TIEMPO
-void giroRapido(signed byte velocidad = 95, int tiempo)
+void giroRapido(signed byte velocidad = 95, float tiempo)
 {
   motor[LEFT_MOTOR] = velocidad;
   motor[RIGHT_MOTOR] = -velocidad;
@@ -24,7 +28,7 @@ void giroRapido(signed byte velocidad = 95, int tiempo)
 }
 
 // Giro a la izquierda con VELOCIDAD y TIEMPO indicados.
-void giroIzquierdaTiempo(signed byte velocidad = 95, int tiempo)
+void giroIzquierdaTiempo(signed byte velocidad = 95, float tiempo)
 {
 	motor[LEFT_MOTOR] = 0;
   motor[RIGHT_MOTOR] = abs(velocidad);
@@ -33,7 +37,7 @@ void giroIzquierdaTiempo(signed byte velocidad = 95, int tiempo)
 }
 
 // Giro a la derecha con VELOCIDAD y TIEMPO indicados.
-void giroDerechaTiempo(signed byte velocidad = 95, int tiempo)
+void giroDerechaTiempo(signed byte velocidad = 95, float tiempo)
 {
 	motor[LEFT_MOTOR] = abs(velocidad);
   motor[RIGHT_MOTOR] = 0;
@@ -42,7 +46,7 @@ void giroDerechaTiempo(signed byte velocidad = 95, int tiempo)
 }
 
 // Avanzar hacia delante (VELOCIDAD positiva) o hacia atrás (VELOCIDAD negativa) durante TIEMPO
-void avanzaTiempo(signed byte velocidad = 95, int tiempo)
+void avanzaTiempo(signed byte velocidad = 95, float tiempo)
 {
   motor[LEFT_MOTOR] = motor[RIGHT_MOTOR] = velocidad;
   espera(tiempo);
@@ -56,7 +60,7 @@ void avanza(signed byte speed = 95)
 }
 
 // Avanza hacia atrás (enciende ambos motores)
-void retrocede(const short speed = 50)
+void retrocede(signed byte speed = 50)
 {
 	motor[LEFT_MOTOR] = motor[RIGHT_MOTOR] = abs(speed) * -1;
 }
@@ -68,39 +72,71 @@ void para()
 }
 
 // Ajusta el valor de VELOCIDAD de un MOTOR
-void ponMotor(const tMotor motorPort = LEFT_MOTOR, const short velocidad = 50)
+void ponMotor(tMotor _motor = LEFT_MOTOR, signed byte velocidad = 50)
 {
-	motor[motorPort] = velocidad;
+	motor[_motor] = velocidad;
 }
 
-// Traducción de la propiedad sensorValue a valor en Español
-intrinsic int property(valor, propertySensor, kNumbOfTotalSensors, tSensors);
+// Ajusta el valor de un servo a una POSICION
+void ponServo(tMotor _servo = SERVO, signed byte posicion = 0)
+{
+  motor[_servo] = posicion;
+}
+
+// Para el programa hasta que se de la condición, que se pulse boton o botonFin
+void esperaBoton(tSensors _sensor = dgtl2)
+{
+	while (valor(_sensor) != 1)	// Mientras no sea 1, esperar y comprobar de nuevo.
+	{
+		espera(0.001);
+	}
+}
+
+// Para el programa hasta que se de la condición, que el valor del sensor sea menor que el dado
+void esperaValorMenor(tSensors _sensor, int valor)
+{
+	// Mientras que no sea menor, esperar y comprobar de nuevo, obviamos el -1
+	while ( (valor(_sensor) >= valor) || (valor(_sensor) == -1) )
+	{
+		espera(0.001);
+	}
+}
+
+// Para el programa hasta que se de la condición, que el valor del sensor sea mayor que el dado
+void esperaValorMayor(tSensors _sensor, int valor)
+{
+	// Mientras que no sea menor, esperar y comprobar de nuevo, obviamos el -1
+	while ( (valor(_sensor) <= valor) )
+	{
+		espera(0.001);
+	}
+}
 
 // EXTRA FUNCTIONS IN ENGLISH --------------------------------------------------------
 
 // Function to Turn on Point at a certain SPEED during TIME
 // Rotation to the right (clockwise) with positive values
 // and to the left (counteclockwise) with negative values
-void timedPointTurn(signed byte speed = 95, int time)
+void timedPointTurn(signed byte speed = 95, float time)
 {
   giroRapido(speed, time);
 }
 
 // Function to Turn to the LEFT a certain SPEED during TIME
-void timedSwingTurnToLeft(signed byte speed = 95, int time)
+void timedSwingTurnToLeft(signed byte speed = 95, float time)
 {
 	giroIzquierdaTiempo(speed, time);
 }
 
 // Function to Turn to the RIGHT a certain SPEED during TIME
-void timedSwingTurnToRight(signed byte speed = 95, int time)
+void timedSwingTurnToRight(signed byte speed = 95, float time)
 {
 	giroDerechaTiempo(speed, time);
 }
 
 // Function to Go Forward at a certain SPEED during TIME.
 // Use a negative speed to go backwards.
-void timedGoForward(signed byte speed = 95, int time)
+void timedGoForward(signed byte speed = 95, float time)
 {
 	avanzaTiempo(speed, time);
 }
