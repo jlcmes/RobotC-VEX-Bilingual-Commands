@@ -93,20 +93,20 @@ void esperaBoton(tSensors _sensor = dgtl2)
 }
 
 // Para el programa hasta que se de la condición, que el valor del sensor sea menor que el dado
-void esperaValorMenor(tSensors _sensor, int valor)
+void esperaValorMenor(tSensors _sensor, int _valor)
 {
 	// Mientras que no sea menor, esperar y comprobar de nuevo, obviamos el -1
-	while ( (valor(_sensor) >= valor) || (valor(_sensor) == -1) )
+	while ( (valor(_sensor) >= _valor) || (valor(_sensor) == -1) )
 	{
 		espera(0.001);
 	}
 }
 
 // Para el programa hasta que se de la condición, que el valor del sensor sea mayor que el dado
-void esperaValorMayor(tSensors _sensor, int valor)
+void esperaValorMayor(tSensors _sensor, int _valor)
 {
 	// Mientras que no sea menor, esperar y comprobar de nuevo, obviamos el -1
-	while ( (valor(_sensor) <= valor) )
+	while ( (valor(_sensor) <= _valor) )
 	{
 		espera(0.001);
 	}
@@ -139,4 +139,25 @@ void timedSwingTurnToRight(signed byte speed = 95, float time)
 void timedGoForward(signed byte speed = 95, float time)
 {
 	avanzaTiempo(speed, time);
+}
+
+// Function that waits until the botton is pressed, is similar to
+// untilBump and untilTouch of NL but it works for bumps and limitswitches
+void untilButton(tSensors _sensor = dgtl2)
+{
+	esperaBoton(_sensor);
+}
+
+// Function that waits until the value of a sensor is less than
+// a certain value. It skips the -1 value from the untrasonic sensor
+void waitUntilValueLessThan(tSensors _sensor, int value)
+{
+	esperaValorMenor(_sensor, value);
+}
+
+// Function that waits until the value of a sensor is greater than
+// a certain value.
+void waitUntilValueGreaterThan(tSensors _sensor, int value)
+{
+	esperaValorMayor(_sensor, value);
 }
