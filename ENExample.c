@@ -16,5 +16,8 @@
 task main()
 {
 	//Write your code here!
-
+  timedGoForward(95, 2);  			// Go forward with a speed of 95 during 2 seconds.
+  timedPointTurn(-50, 2); 			// Rotate on point counterclockwise during 1 second.
+	timedSwingTurnToRight(90, 2); // Turn to the right with a speed of 90 during 2 seconds.
+	timedSwingTurnToLeft(90, 2);	// Turn to the left with a speed of 90 during 2 seconds.
 }
