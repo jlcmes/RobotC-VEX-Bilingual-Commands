@@ -150,14 +150,14 @@ void untilButton(tSensors _sensor = dgtl2)
 
 // Function that waits until the value of a sensor is less than
 // a certain value. It skips the -1 value from the untrasonic sensor
-void waitUntilValueLessThan(tSensors _sensor, int value)
+void untilValueLessThan(tSensors _sensor, int value)
 {
 	esperaValorMenor(_sensor, value);
 }
 
 // Function that waits until the value of a sensor is greater than
 // a certain value.
-void waitUntilValueGreaterThan(tSensors _sensor, int value)
+void untilValueGreaterThan(tSensors _sensor, int value)
 {
 	esperaValorMayor(_sensor, value);
 }
