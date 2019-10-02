@@ -71,11 +71,16 @@ void para()
 	motor[LEFT_MOTOR] = motor[RIGHT_MOTOR] = 0;
 }
 
-
-// Igual que para, mantenemos este por compatibilidad
-void paraMotor()
+// Igual que para, para ambos motores
+void paraRobot()
 {
 	para();
+}
+
+// Para un motor que le pasemos como parametro
+void paraMotor(tMotor _motor)
+{
+	motor[_motor] = 0;
 }
 
 // Ajusta el valor de VELOCIDAD de un MOTOR
