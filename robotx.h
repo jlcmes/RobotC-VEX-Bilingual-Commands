@@ -1,6 +1,6 @@
 #pragma systemFile  // eliminates warning for "unreferenced" functions
 
-// CONFIGURACI覰 DE MOTORES: Pon los mismos que en la configuraci髇 de tu programa.
+// CONFIGURACI脫N DE MOTORES: Pon los mismos que en la configuraci贸n de tu programa.
 // MOTOR CONFIGURATION: Use the same setup that the one of your program.
 const tMotor LEFT_MOTOR = port1;
 const tMotor RIGHT_MOTOR = port10;
@@ -8,7 +8,7 @@ const tMotor SERVO = port9;
 
 // EXTRA FUNCTIONS IN SPANISH ----------------------------------------------------
 
-// Traducci髇 de la propiedad sensorValue a valor en Espa駉l
+// Traducci贸n de la propiedad sensorValue a valor en Espa帽ol
 intrinsic int property(valor, propertySensor, kNumbOfTotalSensors, tSensors);
 
 // Espera un tiempo determinado, equivale al comando WAIT en NL.
@@ -45,7 +45,7 @@ void giroDerechaTiempo(signed byte velocidad = 95, float tiempo)
   motor[LEFT_MOTOR] = motor[RIGHT_MOTOR] = 0;
 }
 
-// Avanzar hacia delante (VELOCIDAD positiva) o hacia atr醩 (VELOCIDAD negativa) durante TIEMPO
+// Avanzar hacia delante (VELOCIDAD positiva) o hacia atr谩s (VELOCIDAD negativa) durante TIEMPO
 void avanzaTiempo(signed byte velocidad = 95, float tiempo)
 {
   motor[LEFT_MOTOR] = motor[RIGHT_MOTOR] = velocidad;
@@ -59,7 +59,7 @@ void avanza(signed byte speed = 95)
 	motor[LEFT_MOTOR] = motor[RIGHT_MOTOR] = abs(speed);
 }
 
-// Avanza hacia atr醩 (enciende ambos motores)
+// Avanza hacia atr谩s (enciende ambos motores)
 void retrocede(signed byte speed = 50)
 {
 	motor[LEFT_MOTOR] = motor[RIGHT_MOTOR] = abs(speed) * -1;
@@ -69,6 +69,13 @@ void retrocede(signed byte speed = 50)
 void para()
 {
 	motor[LEFT_MOTOR] = motor[RIGHT_MOTOR] = 0;
+}
+
+
+// Igual que para, mantenemos este por compatibilidad
+void paraMotor()
+{
+	para();
 }
 
 // Ajusta el valor de VELOCIDAD de un MOTOR
@@ -83,7 +90,7 @@ void ponServo(tMotor _servo = SERVO, signed byte posicion = 0)
   motor[_servo] = posicion;
 }
 
-// Para el programa hasta que se de la condici髇, que se pulse boton o botonFin
+// Para el programa hasta que se de la condici贸n, que se pulse boton o botonFin
 void esperaBoton(tSensors _sensor = dgtl2)
 {
 	while (valor(_sensor) != 1)	// Mientras no sea 1, esperar y comprobar de nuevo.
@@ -92,7 +99,7 @@ void esperaBoton(tSensors _sensor = dgtl2)
 	}
 }
 
-// Para el programa hasta que se de la condici髇, que el valor del sensor sea menor que el dado
+// Para el programa hasta que se de la condici贸n, que el valor del sensor sea menor que el dado
 void esperaValorMenor(tSensors _sensor, int _valor)
 {
 	// Mientras que no sea menor, esperar y comprobar de nuevo, obviamos el -1
@@ -102,7 +109,7 @@ void esperaValorMenor(tSensors _sensor, int _valor)
 	}
 }
 
-// Para el programa hasta que se de la condici髇, que el valor del sensor sea mayor que el dado
+// Para el programa hasta que se de la condici贸n, que el valor del sensor sea mayor que el dado
 void esperaValorMayor(tSensors _sensor, int _valor)
 {
 	// Mientras que no sea menor, esperar y comprobar de nuevo, obviamos el -1
@@ -113,6 +120,24 @@ void esperaValorMayor(tSensors _sensor, int _valor)
 }
 
 // EXTRA FUNCTIONS IN ENGLISH --------------------------------------------------------
+
+// Function to go forward with the Robot at a certain SPEED
+void goForward(signed byte speed = 95)
+{
+	avanza(speed);
+}
+
+// Function to go backwards with the Robot at a certain SPEED
+void goBackwards(signed byte speed = 50)
+{
+	retrocede(speed);	
+}
+
+// Function to stop the robot completely (both motors only, left and right)
+void stopRobot()
+{
+	para();
+}
 
 // Function to Turn on Point at a certain SPEED during TIME
 // Rotation to the right (clockwise) with positive values
