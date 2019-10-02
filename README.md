@@ -8,7 +8,7 @@ Bilingual RobotC EDR template with commands in Spanish and English that makes ea
 
 This template is preconfigured with the same elements that the POE PLTW Testbed, but with two improvements to make it cheaper:
 * no flashlight (you can always add it after)
-* motors left and right are connected to motor ports 1 and 10 (you do not need extra motor controllers anymore!)
+* motors left and right are connected to motor ports 1 and 10 (you do not need extra motor controllers anymore!). Note that the leftmotor on 1 needs to be have the color red facing out and the rightmotor on 10 with the red cable facing in).
 
 IMPORTANT: This is a work in progress, but it works, check this video:
 https://www.youtube.com/watch?v=J2ObpWRXe2s
@@ -38,7 +38,7 @@ All the code is documented in Spanish and English to make them understandable fo
 
 # SPANISH README
 
-Comandos en Español para RobotC EDR. Esta preconfigurado para usar los motores izquierdo y derecho en los puertos 1 y 10 respectivamente.
+Comandos en Español para RobotC EDR. Esta preconfigurado para usar los motores izquierdo y derecho en los puertos 1 y 10 respectivamente (Rojo en 1 hacia afuera y Rojo en 10 hacia dentro).
 
 Todavía no está terminado, pero ya puede ver un resultado de como funciona aquí: https://www.youtube.com/watch?v=J2ObpWRXe2s
 
