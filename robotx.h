@@ -1,6 +1,6 @@
 #pragma systemFile  // eliminates warning for "unreferenced" functions
 
-// CONFIGURACIÓN DE MOTORES: Pon los mismos que en la configuración de tu programa.
+// CONFIGURACION DE MOTORES: Pon los mismos que en la configuracion de tu programa.
 // MOTOR CONFIGURATION: Use the same setup that the one of your program.
 const tMotor LEFT_MOTOR = port1;
 const tMotor RIGHT_MOTOR = port10;
@@ -21,7 +21,7 @@ void espera(float tiempo)
 // o hacia la izquierda (VELOCIDAD negativa) durante un cierto TIEMPO
 void giroRapido(signed byte velocidad = 95, float tiempo)
 {
-  motor[LEFT_MOTOR] = velocidad;
+  motor[LEFT_MOTOR] = -velocidad;
   motor[RIGHT_MOTOR] = -velocidad;
   espera(tiempo);
   motor[LEFT_MOTOR] = motor[RIGHT_MOTOR] = 0;
@@ -30,7 +30,7 @@ void giroRapido(signed byte velocidad = 95, float tiempo)
 // Giro a la izquierda con VELOCIDAD y TIEMPO indicados.
 void giroIzquierdaTiempo(signed byte velocidad = 95, float tiempo)
 {
-	motor[LEFT_MOTOR] = 0;
+  motor[LEFT_MOTOR] = 0;
   motor[RIGHT_MOTOR] = abs(velocidad);
   espera(tiempo);
   motor[LEFT_MOTOR] = motor[RIGHT_MOTOR] = 0;
@@ -39,7 +39,7 @@ void giroIzquierdaTiempo(signed byte velocidad = 95, float tiempo)
 // Giro a la derecha con VELOCIDAD y TIEMPO indicados.
 void giroDerechaTiempo(signed byte velocidad = 95, float tiempo)
 {
-	motor[LEFT_MOTOR] = abs(velocidad);
+  motor[LEFT_MOTOR] = -abs(velocidad);
   motor[RIGHT_MOTOR] = 0;
   espera(tiempo);
   motor[LEFT_MOTOR] = motor[RIGHT_MOTOR] = 0;
@@ -48,7 +48,9 @@ void giroDerechaTiempo(signed byte velocidad = 95, float tiempo)
 // Avanzar hacia delante (VELOCIDAD positiva) o hacia atrás (VELOCIDAD negativa) durante TIEMPO
 void avanzaTiempo(signed byte velocidad = 95, float tiempo)
 {
-  motor[LEFT_MOTOR] = motor[RIGHT_MOTOR] = velocidad;
+  //motor[LEFT_MOTOR] = motor[RIGHT_MOTOR] = velocidad;
+  motor[LEFT_MOTOR] = -velocidad;
+  motor[RIGHT_MOTOR] = velocidad;
   espera(tiempo);
   motor[LEFT_MOTOR] = motor[RIGHT_MOTOR] = 0;
 }
@@ -56,13 +58,17 @@ void avanzaTiempo(signed byte velocidad = 95, float tiempo)
 // Avanza hacia delante (enciende ambos motores)
 void avanza(signed byte speed = 95)
 {
-	motor[LEFT_MOTOR] = motor[RIGHT_MOTOR] = abs(speed);
+	//motor[LEFT_MOTOR] = motor[RIGHT_MOTOR] = abs(speed);
+	motor[LEFT_MOTOR] = -abs(speed);
+	motor[RIGHT_MOTOR] = abs(speed);
 }
 
 // Avanza hacia atrás (enciende ambos motores)
 void retrocede(signed byte speed = 50)
 {
-	motor[LEFT_MOTOR] = motor[RIGHT_MOTOR] = abs(speed) * -1;
+	//motor[LEFT_MOTOR] = motor[RIGHT_MOTOR] = abs(speed) * -1;
+	motor[LEFT_MOTOR] = abs(speed);
+	motor[RIGHT_MOTOR] = -abs(speed);
 }
 
 // Para los motores izquierdo y derecho
@@ -92,7 +98,7 @@ void ponMotor(tMotor _motor = LEFT_MOTOR, signed byte velocidad = 50)
 // Ajusta el valor de un servo a una POSICION
 void ponServo(tMotor _servo = SERVO, signed byte posicion = 0)
 {
-  motor[_servo] = posicion;
+    motor[_servo] = posicion;
 }
 
 // Para el programa hasta que se de la condición, que se pulse boton o botonFin
@@ -135,7 +141,7 @@ void goForward(signed byte speed = 95)
 // Function to go backwards with the Robot at a certain SPEED
 void goBackwards(signed byte speed = 50)
 {
-	retrocede(speed);	
+	retrocede(speed);
 }
 
 // Function to stop the robot completely (both motors only, left and right)
@@ -149,11 +155,17 @@ void stopRobot()
 // and to the left (counteclockwise) with negative values
 void timedPointTurn(signed byte speed = 95, float time)
 {
-  giroRapido(speed, time);
+  	giroRapido(speed, time);
 }
 
 // Function to Turn to the LEFT a certain SPEED during TIME
 void timedSwingTurnToLeft(signed byte speed = 95, float time)
+{
+	giroIzquierdaTiempo(speed, time);
+}
+
+// Same behavior that the previous function
+void turnToLeft(signed byte speed = 95, float time)
 {
 	giroIzquierdaTiempo(speed, time);
 }
@@ -164,9 +176,21 @@ void timedSwingTurnToRight(signed byte speed = 95, float time)
 	giroDerechaTiempo(speed, time);
 }
 
+// Same behavior that the previous function
+void turnToRight(signed byte speed = 95, float time)
+{
+	giroDerechaTiempo(speed, time);
+}
+
 // Function to Go Forward at a certain SPEED during TIME.
 // Use a negative speed to go backwards.
 void timedGoForward(signed byte speed = 95, float time)
+{
+	avanzaTiempo(speed, time);
+}
+
+// Same behavior that the previous function
+void goForward(signed byte speed = 95, float time)
 {
 	avanzaTiempo(speed, time);
 }
