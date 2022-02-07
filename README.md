@@ -8,9 +8,9 @@ Bilingual RobotC EDR template with commands in Spanish and English that makes ea
 
 This template is preconfigured with the same elements that the POE PLTW Testbed, but with two improvements to make it cheaper:
 * no flashlight (you can always add it after)
-* motors left and right are connected to motor ports 1 and 10 (you do not need extra motor controllers anymore!). Note that the leftmotor on 1 needs to be have the color red facing out and the rightmotor on 10 with the red cable facing in).
+* motors left and right are connected to motor ports 1 and 10 (you do not need extra motor controllers). Both motors have to be configured now with the red pin facing the interior of the Cortex.
 
-IMPORTANT: This is a work in progress, but it works, check this video:
+IMPORTANT: This is a work in progress, check this video:
 https://www.youtube.com/watch?v=J2ObpWRXe2s
 
 ## HOW TO USE THE SPANISH COMMANDS ON YOUR CODE:
